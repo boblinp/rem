@@ -1,0 +1,8 @@
+#!/bin/bash
+/root/AQM/rem/queuedata/read.sh
+cp queuedata_rem.txt /home/samba_shared_dir
+/root/AQM/rem/iproute2-3.1.0/tc/tc qdisc del dev eth0 root
+rmmod /root/AQM/rem/queuedata/seqfile_queuedata_rem.ko
+rmmod /root/AQM/rem/modules/sch_rem.ko
+rmmod /root/AQM/rem/math/math.ko
+

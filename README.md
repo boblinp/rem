@@ -54,3 +54,4 @@ run `iperf -s`
 
 ### Examples of Results ###
 
+![rem 1Gbps(port)-100Mbps(link)-1Gbps(port)](https://github.com/zheolong/rem/blob/master/pic_in_readme/1.png)

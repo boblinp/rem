@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Rem by zheolong</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Rem</h1>
+        <h2>Random Exponential Marking</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/zheolong/rem/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/zheolong/rem/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/zheolong/rem" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="rem" class="anchor" href="#rem"><span class="octicon octicon-link"></span></a>rem</h1>
+
+<p>REM is the abbreviation off Random Exponential Marking, which is a scheme for AQM(Active Queue Management).</p>
+
+<p>Present project is mainly about a linux kernle model of REM and some test tools.</p>
+
+<h2>
+<a name="what-rem-is-not" class="anchor" href="#what-rem-is-not"><span class="octicon octicon-link"></span></a>What rem is not</h2>
+
+<h2>
+<a name="what-rem-is" class="anchor" href="#what-rem-is"><span class="octicon octicon-link"></span></a>What rem is</h2>
+
+<p>rem includes:</p>
+
+<ul>
+<li>linux kernel model version of REM (dir:"./modules" and "./include")</li>
+<li>modified test tool -- iproute2 (dir:"iproute2-3.1.0")</li>
+<li>test script and gnuplot file (dir:"test")</li>
+</ul><h2>
+<a name="how-to-use-rem" class="anchor" href="#how-to-use-rem"><span class="octicon octicon-link"></span></a>How to use rem</h2>
+
+<h3>
+<a name="geting-started" class="anchor" href="#geting-started"><span class="octicon octicon-link"></span></a>Geting started</h3>
+
+<p>REM is one of the AQM schemes which are used to manage the queue of the intermediate network devices(typically,routers).</p>
+
+<p>Therefore, you must have at least two computers with linux system. Here we refer to them as <em>A</em> and <em>B</em>.</p>
+
+<p>You must also ensure that you have compiled a linux kernel source in <em>A</em>'s system and boot <em>A</em> with the new kernel. The kernel version preferably is 2.6.39.2.</p>
+
+<p>Install(On <em>A</em>):
++For <em>B</em>
+install <em>iperf</em> (Ubuntu user just run <code>apt-get install iperf</code>)
++For <em>A</em>
+1. Download source(and unzip)</p>
+
+<ol>
+<li>
+<p>open your kernel source file "/include/linux/pkt_sched.h"</p>
+
+<p>insert the content of "./patch/rem_patch_content" just before "/* GRED section */"</p>
+</li>
+<li><p>from the terminal navigate to source folder <em>rem</em> and run <code>make</code></p></li>
+<li><p>install <em>iperf</em> and <em>gnuplot</em> (Ubuntu user just run <code>apt-get install iperf gnuplot</code>)</p></li>
+</ol><p>Test:
+Note: Premise of test is that <em>A</em> can ping <em>B</em> and <em>B</em> can ping <em>A</em>.</p>
+
+<p>+For <em>B</em>
+run <code>iperf -s</code> 
++For <em>A</em>,
+1. from the terminal navigate to source folder <em>rem</em></p>
+
+<ol>
+<li>
+<p>run <code>cd test &amp;&amp; ./autotest</code> and wait 50 seconds util the test is done.</p>
+
+<p>Not surprisingly, you'll see the drawing of test results.</p>
+</li>
+</ol><h3>
+<a name="examples-of-results" class="anchor" href="#examples-of-results"><span class="octicon octicon-link"></span></a>Examples of Results</h3>
+
+<p><img src="https://github.com/zheolong/rem/blob/master/pic_in_readme/1.png" alt="rem 1Gbps(port)-100Mbps(link)-1Gbps(port)"></p>
+
+<blockquote>
+</blockquote>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
